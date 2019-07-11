@@ -5,6 +5,7 @@ using System;
 namespace KasselDotNet.NServiceBus.BeerPub.Server {
     public class EndpointConfig : IConfigureThisEndpoint {
         public void Customize(EndpointConfiguration endpointConfiguration) {
+            endpointConfiguration.EnableInstallers();
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             endpointConfiguration.UseSerialization<JsonSerializer>();
             endpointConfiguration.UseTransport<MsmqTransport>();
